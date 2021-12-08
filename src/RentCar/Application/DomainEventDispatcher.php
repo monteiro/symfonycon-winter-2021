@@ -1,14 +1,11 @@
 <?php
 
-
 namespace App\RentCar\Application;
-
 
 use App\RentCar\Domain\Common\DomainEvent;
 use App\RentCar\Domain\Common\DomainEventDispatcherInterface;
 use App\RentCar\Domain\Common\StoredEvent;
 use App\RentCar\Domain\Common\StoredEventRepository;
-use App\RentCar\Infrastructure\Persistence\Doctrine\DoctrineStoredEventRepository;
 use Symfony\Component\Serializer\SerializerInterface;
 
 final class DomainEventDispatcher implements DomainEventDispatcherInterface
@@ -29,7 +26,7 @@ final class DomainEventDispatcher implements DomainEventDispatcherInterface
      */
     public function dispatchAll(array $domainEvents): void
     {
-        foreach($domainEvents as $domainEvent) {
+        foreach ($domainEvents as $domainEvent) {
             $this->storedEventRepository->append(new StoredEvent(
                 $this->storedEventRepository->nextIdentity(),
                 get_class($domainEvent),
@@ -37,7 +34,7 @@ final class DomainEventDispatcher implements DomainEventDispatcherInterface
                 $domainEvent->getAggregateRootId(),
                 $domainEvent->getActorId(),
                 )
-            );    
+            );
         }
     }
 }

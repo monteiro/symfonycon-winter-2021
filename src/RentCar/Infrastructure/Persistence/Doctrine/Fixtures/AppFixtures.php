@@ -3,10 +3,10 @@
 namespace App\RentCar\Infrastructure\Persistence\Doctrine\Fixtures;
 
 use App\RentCar\Domain\Model\Car\Car;
-use App\RentCar\Domain\Model\Car\CarMatch;
 use App\RentCar\Domain\Model\Car\CarRepository;
 use App\RentCar\Domain\Model\Customer\Customer;
 use App\RentCar\Domain\Model\Customer\CustomerRepository;
+use App\RentCar\Domain\Model\Match\CarMatch;
 use App\RentCar\Domain\Model\Match\CarMatchRepository;
 use App\RentCar\Domain\Model\Reservation\Reservation;
 use App\RentCar\Domain\Model\Reservation\ReservationRepository;

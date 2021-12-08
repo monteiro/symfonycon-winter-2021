@@ -1,11 +1,11 @@
 <?php
+
 namespace App\RentCar\Infrastructure\Symfony\Console;
 
 use App\RentCar\Application\Car\CreateCarCommand;
 use App\RentCar\Application\Customer\CreateCustomerCommand;
 use App\RentCar\Application\Reservation\CancelReservationCommand;
 use App\RentCar\Application\Reservation\CreateReservationCommand;
-use App\RentCar\Domain\Model\Customer\CustomerRepository;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -15,10 +15,8 @@ use Symfony\Component\Uid\Uuid;
 
 final class RentCarSimulationCommand extends Command
 {
-    // the name of the command (the part after "bin/console")
     protected static $defaultName = 'app:rentcar:simulation';
     private MessageBusInterface $messageBus;
-    private CustomerRepository $customerRepository;
 
     public function __construct(
         MessageBusInterface $messageBus
@@ -35,7 +33,8 @@ final class RentCarSimulationCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $systemUser = Uuid::v4()->toRfc4122();
-        
+
+        $output->writeln('creating a car');
         $this->messageBus->dispatch(
             new CreateCarCommand(
                 'mitsubishi',
@@ -44,7 +43,8 @@ final class RentCarSimulationCommand extends Command
                 $systemUser
             )
         );
-        
+
+        $output->writeln('creating a customer');
         $envelope = $this->messageBus->dispatch(
             new CreateCustomerCommand(
                 'John Doe',
@@ -57,7 +57,8 @@ final class RentCarSimulationCommand extends Command
 
         $handledStamp = $envelope->last(HandledStamp::class);
         $customerId = $handledStamp->getResult();
-        
+
+        $output->writeln('creating a reservation');
         $envelope = $this->messageBus->dispatch(
             new CreateReservationCommand(
                 '21 Main Road London',
@@ -72,6 +73,7 @@ final class RentCarSimulationCommand extends Command
         $handledStamp = $envelope->last(HandledStamp::class);
         $reservationId = $handledStamp->getResult();
 
+        $output->writeln('cancelling a reservation');
         $this->messageBus->dispatch(
             new CancelReservationCommand(
                 $reservationId,
@@ -81,5 +83,4 @@ final class RentCarSimulationCommand extends Command
 
         return Command::SUCCESS;
     }
-    
 }

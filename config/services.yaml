@@ -29,8 +29,10 @@ services:
         tags: [ messenger.message_handler ]
     App\RentCar\Application\Customer\CreateCustomerCommandHandler:
         tags: [ messenger.message_handler ]
+    App\RentCar\Application\Match\CreateCarMatchCommandHandler:
+        tags: [ messenger.message_handler ]        
 
-    # another service is subscribing to this message
+    # another service is subscribing to this domain events
 
     App\RentCar\Application\External\CustomerWasCreatedHandler:
       tags:

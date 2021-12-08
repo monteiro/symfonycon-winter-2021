@@ -17,7 +17,7 @@ final class CreateCarCommandHandler
         $this->domainEventDispatcher = $domainEventDispatcher;
     }
     
-    public function __invoke(CreateCarCommand $command) 
+    public function __invoke(CreateCarCommand $command): string
     {
         $newCar = Car::create(
             $this->carRepository->nextIdentity(),
@@ -29,5 +29,7 @@ final class CreateCarCommandHandler
         
         $this->carRepository->save($newCar);
         $this->domainEventDispatcher->dispatchAll($newCar->releaseEvents());
+        
+        return $newCar->getId();
     }
 }

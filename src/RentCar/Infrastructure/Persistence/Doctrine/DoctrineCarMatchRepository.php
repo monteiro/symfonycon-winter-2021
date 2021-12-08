@@ -2,7 +2,7 @@
 
 namespace App\RentCar\Infrastructure\Persistence\Doctrine;
 
-use App\RentCar\Domain\Model\Car\CarMatch;
+use App\RentCar\Domain\Model\Match\CarMatch;
 use App\RentCar\Domain\Model\Match\CarMatchRepository;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;

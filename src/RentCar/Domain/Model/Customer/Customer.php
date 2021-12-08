@@ -17,7 +17,7 @@ class Customer
     /**
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\Column(type="string", length=32)
+     * @ORM\Column(type="string", length=36)
      */
     private string $id;
 

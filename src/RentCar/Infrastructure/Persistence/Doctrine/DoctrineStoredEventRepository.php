@@ -20,7 +20,7 @@ class DoctrineStoredEventRepository extends ServiceEntityRepository implements S
     {
         parent::__construct($registry, StoredEvent::class);
     }
-    
+
     public function append(StoredEvent $storedEvent): void
     {
         $this->getEntityManager()->persist($storedEvent);
@@ -58,7 +58,7 @@ class DoctrineStoredEventRepository extends ServiceEntityRepository implements S
     {
         return Uuid::v4()->toRfc4122();
     }
-    
+
     /**
      * @return array<StoredEvent>
      */
@@ -66,10 +66,10 @@ class DoctrineStoredEventRepository extends ServiceEntityRepository implements S
     {
         return $this->createQueryBuilder('r')
             ->andWhere('r.published = false')
-            ->orderBy('r.id', 'ASC')
+            ->orderBy('r.occurredOn', 'ASC')
             ->setMaxResults($batchSize)
             ->getQuery()
-            ->getResult();   
+            ->getResult();
     }
 
     public function save(StoredEvent $storedEvent): void

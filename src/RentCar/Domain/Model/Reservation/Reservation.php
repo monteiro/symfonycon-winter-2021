@@ -15,12 +15,13 @@ class Reservation
     use AggregateRoot;
     
     private const VALID_CATEGORIES = ['standard', 'intermediate', 'premium'];
-    private const VALID_STATUS = ['pending', 'cancelled', 'completed'];
-    
+    private const VALID_STATUS = ['pending', self::STATUS_CANCELLED, 'completed'];
+    const STATUS_CANCELLED = 'cancelled';
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\Column(type="string", length=32)
+     * @ORM\Column(type="string", length=36)
      */
     private string $id;
 
@@ -107,7 +108,11 @@ class Reservation
     
     public function cancel(string $actorId) {
         Assertion::uuid($actorId);
-        $this->status = 'cancelled';
+        if ($this->status === self::STATUS_CANCELLED) {
+            throw new \InvalidArgumentException(sprintf('The reservation with id "%s" was already cancelled', $this->id));
+        }
+        
+        $this->status = self::STATUS_CANCELLED;
         
         $this->record(new ReservationWasCancelled($this->id, $actorId));
     }

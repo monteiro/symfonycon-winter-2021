@@ -43,6 +43,11 @@ class StoredEvent
     private string $published;
 
     /**
+     * @ORM\Column(type="datetime_immutable")
+     */
+    private \DateTimeImmutable $occurredOn;
+
+    /**
      * @param $id
      * @param $typeName
      * @param $eventBody
@@ -56,6 +61,8 @@ class StoredEvent
         $this->eventBody       = $eventBody;
         $this->aggregateRootId = $aggregateRootId;
         $this->actorId         = $actorId;
+        
+        $this->occurredOn = new \DateTimeImmutable();
         
         $this->published = false;
     }
