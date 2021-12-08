@@ -36,6 +36,8 @@ bin/phpunit -c phpunit.xml.dist
 
 - Domain events in a table "stored_event" after executing the "simulation" command
 - Aggregate roots in their tables (e.g. customer, reservation, etc)
+- Worker that sends the domain events from the database to the transport configured
+- Use Symfony Messenger consume command to consume domain events published
 
 ## Work in progress
 
