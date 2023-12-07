@@ -20,7 +20,10 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
             - '../src/Tests/'
-    
+
+    App\RentCar\Infrastructure\Symfony\Controller\CarController:        
+        tags: ['controller.service_arguments']
+
     App\RentCar\Application\Car\CreateCarCommandHandler:
         tags: [ messenger.message_handler ]
     App\RentCar\Application\Reservation\CancelReservationCommandHandler:
@@ -31,8 +34,6 @@ services:
         tags: [ messenger.message_handler ]
     App\RentCar\Application\Match\CreateCarMatchCommandHandler:
         tags: [ messenger.message_handler ]        
-
-    # another service is subscribing to this domain events
 
     App\RentCar\Application\External\CustomerWasCreatedHandler:
       tags:

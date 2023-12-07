@@ -5,33 +5,23 @@ namespace App\RentCar\Domain\Model\Car;
 use App\RentCar\Domain\Common\AggregateRoot;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity
- */
+#[ORM\Entity]
 class Car
 {
     use AggregateRoot;
     
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\Column(type="string", length=36)
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue(strategy: "NONE")]
+    #[ORM\Column(type: "string", length: 36)]
     private string $id;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
+    
+    #[ORM\Column(type: "string", length: 255)]
     private string $brand;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
+    
+    #[ORM\Column(type: "string", length: 255)]
     private string $model;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
+    
+    #[ORM\Column(type: "string", length: 255)]
     private string $category;
     
     public static function create(string $id, string $brand, string $model, string $category, string $actorId): self {

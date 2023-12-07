@@ -7,38 +7,26 @@ use Assert\Assertion;
 use Assert\AssertionFailedException;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity
- */
+#[ORM\Entity]
 class Customer
 {
     use AggregateRoot;
     
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\Column(type="string", length=36)
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue(strategy: "NONE")]
+    #[ORM\Column(type: "string", length: 36)]
     private string $id;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
+    #[ORM\Column(type: "string", length: 255)]
     private string $name;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
+    
+    #[ORM\Column(type: "string", length: 255)]
     private string $address;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
+    
+    #[ORM\Column(type: "string", length: 50)]
     private string $phone;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
+    
+    #[ORM\Column(type: "string", length: 255)]
     private string $email;
     private string $actorId;
 

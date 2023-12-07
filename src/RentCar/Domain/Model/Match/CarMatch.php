@@ -8,28 +8,20 @@ use App\RentCar\Domain\Model\Car\CarRepository;
 use App\RentCar\Domain\Model\Reservation\Reservation;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity
- */
+#[ORM\Entity]
 class CarMatch
 {
     use AggregateRoot;
-
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\Column(type="string", length=36)
-     */
+    
+    #[ORM\Id]
+    #[ORM\GeneratedValue(strategy: "NONE")]
+    #[ORM\Column(type: "string", length: 36)]
     private string $id;
-
-    /**
-     * @ORM\OneToOne(targetEntity="App\RentCar\Domain\Model\Reservation\Reservation")
-     */
+    
+    #[ORM\OneToOne(targetEntity: Reservation::class)]
     private Reservation $reservation;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\RentCar\Domain\Model\Car\Car")
-     */
+    
+    #[ORM\ManyToOne(targetEntity: Car::class)]
     private Car $car;
 
     public static function match(string $matchId, Reservation $reservation, CarRepository $carRepository): self

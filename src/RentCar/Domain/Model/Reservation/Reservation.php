@@ -7,56 +7,38 @@ use App\RentCar\Domain\Model\Customer\Customer;
 use Assert\Assertion;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity
- */
+#[ORM\Entity]
 class Reservation
 {
     use AggregateRoot;
     
     private const VALID_CATEGORIES = ['standard', 'intermediate', 'premium'];
+    private const STATUS_CANCELLED = 'cancelled';
     private const VALID_STATUS = ['pending', self::STATUS_CANCELLED, 'completed'];
-    const STATUS_CANCELLED = 'cancelled';
-
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\Column(type="string", length=36)
-     */
+    
+    #[ORM\Id]
+    #[ORM\GeneratedValue(strategy: "NONE")]
+    #[ORM\Column(type: "string", length: 36)]
     private string $id;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
+    
+    #[ORM\Column(type: "string", length: 255)]
     private string $location;
-
-    /**
-     * @ORM\Column(type="datetime_immutable")
-     */
+    
+    #[ORM\Column(type: "datetime_immutable")]
     private \DateTimeImmutable $pickUpAt;
-
-    /**
-     * @ORM\Column(type="datetime_immutable")
-     */
+    
+    #[ORM\Column(type: "datetime_immutable")]
     private \DateTimeImmutable $returnAt;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
+    
+    #[ORM\Column(type: "string", length: 255)]
     private string $category;
-
-    /**
-     * pending or confirmed
-     * 
-     * @ORM\Column(type="string", length=255)
-     */
+    
+    #[ORM\Column(type: "string", length: 255)]
     private string $status;
 
     private string $actorId;
     
-    /**
-     * @ORM\ManyToOne(targetEntity="App\RentCar\Domain\Model\Customer\Customer", inversedBy="id")
-     */
+    #[ORM\ManyToOne(targetEntity: Customer::class, inversedBy: "id")]
     private Customer $customer;
 
     public static function create(

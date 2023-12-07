@@ -5,46 +5,30 @@ namespace App\RentCar\Domain\Common;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\StoredEventRepository;
 
-/**
- * @ORM\Entity
- */
+#[ORM\Entity]
 class StoredEvent
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\Column(type="string", length=32)
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue(strategy: "NONE")]
+    #[ORM\Column(type: "string", length: 32)]
     private string $id;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
+    
+    #[ORM\Column(type: "string", length: 255)]
     private string $typeName;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
+    
+    #[ORM\Column(type: "text")]
     private string $eventBody;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
+    
+    #[ORM\Column(type: "string", length: 255)]
     private string $aggregateRootId;
 
-    /**
-     * @ORM\Column(type="string", length=32)
-     */
+    #[ORM\Column(type: "string", length: 32)]
     private ?string $actorId;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
+    
+    #[ORM\Column(type: "boolean")]
     private string $published;
-
-    /**
-     * @ORM\Column(type="datetime_immutable")
-     */
+    
+    #[ORM\Column(type: "datetime_immutable")]
     private \DateTimeImmutable $occurredOn;
 
     /**
