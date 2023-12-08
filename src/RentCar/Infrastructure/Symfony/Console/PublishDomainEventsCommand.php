@@ -53,6 +53,8 @@ final class PublishDomainEventsCommand extends Command implements SignalableComm
         $batchSize = $input->getArgument('batchSize');
         
         while (true) {
+            $output->writeln('listening to new events...');
+            
             if ($this->shouldStop) {
                 break;
             }

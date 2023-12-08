@@ -20,7 +20,7 @@ final class CarController
         User $user
     ): Response {
         $body = $request->toArray();
-
+        
         $envelope = $bus->dispatch(
             new CreateCarCommand(
                 $body['brand'] ?? null,
