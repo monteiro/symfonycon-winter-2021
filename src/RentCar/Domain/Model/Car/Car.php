@@ -2,7 +2,7 @@
 
 namespace App\RentCar\Domain\Model\Car;
 
-use App\RentCar\Domain\Common\AggregateRoot;
+use App\DDDBundle\Domain\AggregateRoot;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]

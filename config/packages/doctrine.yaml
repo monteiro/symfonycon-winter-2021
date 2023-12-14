@@ -12,13 +12,7 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
         auto_mapping: true
         report_fields_where_declared: true
-        mappings:
-            Common:
-                is_bundle: false
-                type: attribute
-                dir: '%kernel.project_dir%/src/RentCar/Domain/Common'
-                prefix: 'App\RentCar\Domain\Common'
-                alias: Common
+        mappings:          
             App:
                 is_bundle: false
                 type: attribute

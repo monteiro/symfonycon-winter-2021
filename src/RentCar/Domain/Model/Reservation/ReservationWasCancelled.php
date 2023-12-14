@@ -3,8 +3,7 @@
 
 namespace App\RentCar\Domain\Model\Reservation;
 
-
-use App\RentCar\Domain\Common\DomainEvent;
+use App\DDDBundle\Domain\DomainEvent;
 
 final class ReservationWasCancelled implements DomainEvent
 {

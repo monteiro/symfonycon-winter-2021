@@ -2,7 +2,7 @@
 
 namespace App\RentCar\Domain\Model\Match;
 
-use App\RentCar\Domain\Common\AggregateRoot;
+use App\DDDBundle\Domain\AggregateRoot;
 use App\RentCar\Domain\Model\Car\Car;
 use App\RentCar\Domain\Model\Car\CarRepository;
 use App\RentCar\Domain\Model\Reservation\Reservation;

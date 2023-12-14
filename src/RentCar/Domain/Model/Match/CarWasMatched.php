@@ -1,7 +1,7 @@
 <?php
 namespace App\RentCar\Domain\Model\Match;
 
-use App\RentCar\Domain\Common\DomainEvent;
+use App\DDDBundle\Domain\DomainEvent;
 
 final class CarWasMatched implements DomainEvent
 {

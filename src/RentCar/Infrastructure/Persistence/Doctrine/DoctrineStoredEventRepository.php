@@ -2,8 +2,8 @@
 
 namespace App\RentCar\Infrastructure\Persistence\Doctrine;
 
-use App\RentCar\Domain\Common\StoredEvent;
-use App\RentCar\Domain\Common\StoredEventRepository;
+use App\DDDBundle\Domain\StoredEvent;
+use App\DDDBundle\Domain\StoredEventRepository;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Uid\Uuid;

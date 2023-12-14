@@ -4,8 +4,8 @@
 namespace App\Tests\RentCar\Application;
 
 
-use App\RentCar\Domain\Common\DomainEvent;
-use App\RentCar\Domain\Common\DomainEventDispatcherInterface;
+use App\DDDBundle\Domain\DomainEvent;
+use App\DDDBundle\Domain\DomainEventDispatcherInterface;
 
 final class TraceableDomainEventDispatcher implements DomainEventDispatcherInterface
 {

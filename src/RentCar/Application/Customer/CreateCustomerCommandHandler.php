@@ -1,7 +1,7 @@
 <?php
 namespace App\RentCar\Application\Customer;
 
-use App\RentCar\Domain\Common\DomainEventDispatcherInterface;
+use App\DDDBundle\Domain\DomainEventDispatcherInterface;
 use App\RentCar\Domain\Model\Customer\Customer;
 use App\RentCar\Domain\Model\Customer\CustomerRepository;
 use Assert\AssertionFailedException;

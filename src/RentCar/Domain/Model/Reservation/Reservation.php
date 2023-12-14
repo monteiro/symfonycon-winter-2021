@@ -2,7 +2,7 @@
 
 namespace App\RentCar\Domain\Model\Reservation;
 
-use App\RentCar\Domain\Common\AggregateRoot;
+use App\DDDBundle\Domain\AggregateRoot;
 use App\RentCar\Domain\Model\Customer\Customer;
 use Assert\Assertion;
 use Doctrine\ORM\Mapping as ORM;

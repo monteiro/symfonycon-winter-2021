@@ -1,9 +1,7 @@
 <?php
 namespace App\RentCar\Application\Reservation;
 
-use App\RentCar\Domain\Common\DomainEventDispatcherInterface;
-use App\RentCar\Domain\Model\Customer\CustomerRepository;
-use App\RentCar\Domain\Model\Reservation\Reservation;
+use App\DDDBundle\Domain\DomainEventDispatcherInterface;
 use App\RentCar\Domain\Model\Reservation\ReservationRepository;
 
 final class CancelReservationCommandHandler

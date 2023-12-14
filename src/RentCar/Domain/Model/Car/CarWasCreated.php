@@ -2,7 +2,7 @@
 
 namespace App\RentCar\Domain\Model\Car;
 
-use App\RentCar\Domain\Common\DomainEvent;
+use App\DDDBundle\Domain\DomainEvent;
 
 class CarWasCreated implements DomainEvent
 {

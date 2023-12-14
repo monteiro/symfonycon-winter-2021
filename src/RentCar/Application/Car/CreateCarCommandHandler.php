@@ -1,7 +1,7 @@
 <?php
 namespace App\RentCar\Application\Car;
 
-use App\RentCar\Domain\Common\DomainEventDispatcherInterface;
+use App\DDDBundle\Domain\DomainEventDispatcherInterface;
 use App\RentCar\Domain\Model\Car\Car;
 use App\RentCar\Domain\Model\Car\CarRepository;
 

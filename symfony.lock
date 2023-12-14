@@ -142,6 +142,9 @@
     "monolog/monolog": {
         "version": "2.3.5"
     },
+    "monteiro/ddd-bundle": {
+        "version": "dev-main"
+    },
     "nikic/php-parser": {
         "version": "v4.13.1"
     },

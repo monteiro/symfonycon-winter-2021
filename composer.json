@@ -5,6 +5,7 @@
   "prefer-stable": true,
   "require": {
     "php": ">=8.2",
+    "monteiro/ddd-bundle": "@dev",
     "ext-ctype": "*",
     "ext-iconv": "*",
     "ext-pcntl": "*",
@@ -102,5 +103,14 @@
     "symfony/phpunit-bridge": "^6.3",
     "symfony/stopwatch": "7.0.*",
     "symfony/web-profiler-bundle": "7.0.*"
-  }
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "../ddd-bundle",
+      "options": {
+        "symlink": true
+      }
+    }
+  ]
 }
