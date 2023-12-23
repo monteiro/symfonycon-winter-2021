@@ -16,3 +16,5 @@ framework:
         routing:
             App\RentCar\Domain\Model\Car\CarWasCreated: async
             App\RentCar\Domain\Model\Customer\CustomerWasCreated: async
+            App\RentCar\Domain\Model\Reservation\ReservationWasCreated: async
+            App\RentCar\Domain\Model\Reservation\ReservationWasCancelled: async

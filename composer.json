@@ -5,7 +5,7 @@
   "prefer-stable": true,
   "require": {
     "php": ">=8.2",
-    "monteiro/ddd-bundle": "@dev",
+    "monteiro/ddd-bundle": "^0.1",
     "ext-ctype": "*",
     "ext-iconv": "*",
     "ext-pcntl": "*",
@@ -106,11 +106,8 @@
   },
   "repositories": [
     {
-      "type": "path",
-      "url": "../ddd-bundle",
-      "options": {
-        "symlink": true
-      }
+      "type": "vcs",
+      "url": "https://github.com/monteiro/ddd-bundle"
     }
   ]
 }

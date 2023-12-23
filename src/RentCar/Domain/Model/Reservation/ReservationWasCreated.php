@@ -29,7 +29,7 @@ final class ReservationWasCreated implements DomainEvent
         return $this->occurredOn;
     }
 
-    public function getActorId(): ?string
+    public function getUserId(): ?string
     {
         return $this->actorId;
     }
